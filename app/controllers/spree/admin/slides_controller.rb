@@ -7,7 +7,7 @@ module Spree
 
       def update
         invoke_callbacks(:update, :before)
-        if @object.update_attributes(permitted_resource_params)
+        if @object.update(permitted_resource_params)
           invoke_callbacks(:update, :after)
           handle_slide_locations(@object)
           respond_with(@object) do |format|
